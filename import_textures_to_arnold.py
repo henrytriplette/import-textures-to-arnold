@@ -32,7 +32,7 @@ def home_Card():
     
     cmds.rowLayout(numberOfColumns=2)
     cmds.text('Image type: .')
-    vars["imageType"] = cmds.textField(tx='jpg', w=30, cc="update()")
+    vars["imageType"] = cmds.textField(tx='png', w=30, cc="update()")
     cmds.setParent('..')
     
     cmds.rowLayout()
@@ -84,7 +84,7 @@ def advanced_Card():
 
     cmds.rowLayout(numberOfColumns=2)
     vars["maps"]["Metalness"]["Enabled"] = cmds.checkBox( label='Metalness', v=1, cc="cmds.textField(vars['maps']['Metalness']['ID'], e=True, en=cmds.checkBox(vars['maps']['Metalness']['Enabled'], q=1, v=1))")
-    vars["maps"]["Metalness"]["ID"] = cmds.textField(tx='_Metalness', w=150, cc="update()")
+    vars["maps"]["Metalness"]["ID"] = cmds.textField(tx='_Metallic', w=150, cc="update()")
     cmds.setParent('..')
     
     cmds.rowLayout(numberOfColumns=2)
@@ -320,7 +320,7 @@ def specularMap(filePath, material):
     # if a file texture is already connected to this input, update it
     # otherwise, delete it
     input = 'specularRoughness'
-    colorSpace = 'Specular'
+    colorSpace = 'Raw'
     
     # no connected file texture, so make a new one
     newFile = cmds.shadingNode('file',asTexture=1,icm=True)
